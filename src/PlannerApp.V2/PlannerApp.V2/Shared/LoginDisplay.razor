@@ -8,7 +8,7 @@
     <Authorized>
         <MudMenu FullWidth="true">
             <ActivatorContent>
-                <MudChip Icon="@Icons.Material.Filled.Person" Color="Color.Secondary"></MudChip>
+                <MudChip Icon="@Icons.Material.Filled.Person" Color="Color.Secondary"> @context.User.FindFirst(ClaimTypes.GivenName).Value</MudChip>
             </ActivatorContent>
             <ChildContent>
                 <MudMenuItem>Welcome @context.User.FindFirst(ClaimTypes.GivenName).Value</MudMenuItem>
