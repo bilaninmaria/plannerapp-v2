@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Components.Authorization;
 using PlannerApp.Shared.Models;
 using PlannerApp.Shared.Responses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -30,12 +28,12 @@ namespace PlannerApp.V2.Components
         private LoginRequest _model = new();
 
         //To show some reaction from the user(to avoid hyper clicking).
-        private bool _IsBusy = false;
+        private bool _isBusy = false;
         private string _errorMessage = string.Empty;
 
         private async Task LoginUserAsync()
         {
-            _IsBusy = true;
+            _isBusy = true;
             _errorMessage = string.Empty;
 
             var response = await HttpClient.PostAsJsonAsync("/api/v2/auth/login", _model);
@@ -58,7 +56,7 @@ namespace PlannerApp.V2.Components
                 var errorResult = await response.Content.ReadFromJsonAsync<ApiErrorResponse>();
                 _errorMessage = errorResult.Message;
             }
-            _IsBusy = false;
+            _isBusy = false;
 
         }
         private void RedirectToRegister()

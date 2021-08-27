@@ -3,8 +3,6 @@ using PlannerApp.Client.Services.Exceptions;
 using PlannerApp.Client.Services.Interfaces;
 using PlannerApp.Shared.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PlannerApp.V2.Components
@@ -20,12 +18,12 @@ namespace PlannerApp.V2.Components
         private RegisterRequest _model = new();
 
         //To show some reaction from the user(to avoid hyper clicking).
-        private bool _IsBusy = false;
+        private bool _isBusy = false;
         private string _errorMessage = string.Empty;
 
         private async Task RegisterUserAsync()
         {
-            _IsBusy = true;
+            _isBusy = true;
             _errorMessage = string.Empty;
 
             try
@@ -44,7 +42,7 @@ namespace PlannerApp.V2.Components
                 //Handle errors
                 _errorMessage = ex.Message;
             }
-            _IsBusy = false;
+            _isBusy = false;
         }
         private void RedirectToLogin()
         {
